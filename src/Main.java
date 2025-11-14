@@ -24,9 +24,9 @@ public class Main {
         int totalScore = 0;
         File f = new File ("Guesses.txt");
         Scanner s = new Scanner(f);
-        String guessOne = "";
-        String guessTwo = "";
-        String answer = "";
+        String guessOne = " ";
+        String guessTwo = " ";
+        String answer = " ";
 
         while (s.hasNextLine()); {
             answer = s.next();
