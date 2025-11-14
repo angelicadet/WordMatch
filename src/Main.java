@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
+        System.out.println(total());
 //        WordMatch w = new WordMatch("mississippi");
 //        System.out.println(w.scoreGuess("i"));
 //        System.out.println(w.scoreGuess("iss"));
@@ -24,16 +25,18 @@ public class Main {
         int totalScore = 0;
         File f = new File ("Guesses.txt");
         Scanner s = new Scanner(f);
-        String guessOne = " ";
-        String guessTwo = " ";
-        String answer = " ";
+        String guessOne = "";
+        String guessTwo = "";
+        String answer = "";
 
         while (s.hasNextLine()); {
-            answer = s.next();
-            guessOne = s.next();
-            guessTwo = s.next();
-            WordMatch q = new WordMatch(answer);
-            q.findBetterGuess(guessOne, guessTwo) += totalScore;
+            for (int i = 0; i <= 1000; i++); {
+                answer = s.next();
+                guessOne = s.next();
+                guessTwo = s.next();
+                WordMatch q = new WordMatch(answer);
+                totalScore =+ q.scoreGuess(q.findBetterGuess(guessOne, guessTwo));
+            }
         }
     return totalScore;
     }
