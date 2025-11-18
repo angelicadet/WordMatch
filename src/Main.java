@@ -21,23 +21,17 @@ public class Main {
 //        System.out.println(t.scoreGuess("cat"));
 //        System.out.println(t.findBetterGuess("con", "cat"));
     }
+
     public static int total() throws FileNotFoundException {
         int totalScore = 0;
-        File f = new File ("Guesses.txt");
+        File f = new File("Guesses.txt");
         Scanner s = new Scanner(f);
-        String guessOne = "";
-        String guessTwo = "";
-        String answer = "";
 
-        while (s.hasNextLine()); {
-            for (int i = 0; i <= 1000; i++); {
-                answer = s.next();
-                guessOne = s.next();
-                guessTwo = s.next();
-                WordMatch q = new WordMatch(answer);
-                totalScore =+ q.scoreGuess(q.findBetterGuess(guessOne, guessTwo));
-            }
+        while (s.hasNext()) {
+            WordMatch q = new WordMatch(s.next());
+            totalScore += q.scoreGuess(q.findBetterGuess(s.next(), s.next()));
+
         }
-    return totalScore;
+        return totalScore;
     }
 }
